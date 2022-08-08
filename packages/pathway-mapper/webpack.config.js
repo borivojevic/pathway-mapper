@@ -17,12 +17,15 @@ module.exports = {
     minimize: prod ? true : false
   },
   devtool: 'source-map',
+  target: 'web',
   entry: "./src/ui/react-pathway-mapper.tsx",
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "index.es5.js",
     library: 'pathway-mapper',
-    libraryTarget: 'commonjs-module'
+    libraryTarget: 'umd',
+    globalObject: 'this',
+    umdNamedDefine: true,
   },
   node: {
     fs: 'empty'
